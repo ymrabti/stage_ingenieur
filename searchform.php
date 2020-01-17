@@ -30,18 +30,18 @@
         $sql33 = "SELECT * FROM types";
         $sql44 = "SELECT * FROM admission";
         $sql55 = "SELECT * FROM typesdiplomes";
-        $reqq = requette($hote, $database, $username, $password, $sqll);
-        $reqf = requette($hote, $database, $username, $password, $sqlf);
-        $req1 = requette($hote, $database, $username, $password, $sql1);
-        $req2 = requette($hote, $database, $username, $password, $sql2);
-        $req3 = requette($hote, $database, $username, $password, $sql3);
-        $req4 = requette($hote, $database, $username, $password, $sql4);
-        $req5 = requette($hote, $database, $username, $password, $sql5);
-        $req11 = requette($hote, $database, $username, $password, $sql11);
-        $req22 = requette($hote, $database, $username, $password, $sql22);
-        $req33 = requette($hote, $database, $username, $password, $sql33);
-        $req44 = requette($hote, $database, $username, $password, $sql44);
-        $req55 = requette($hote, $database, $username, $password, $sql55);
+        $reqq = requette( $sqll);
+        $reqf = requette( $sqlf);
+        $req1 = requette( $sql1);
+        $req2 = requette( $sql2);
+        $req3 = requette( $sql3);
+        $req4 = requette( $sql4);
+        $req5 = requette( $sql5);
+        $req11 = requette( $sql11);
+        $req22 = requette( $sql22);
+        $req33 = requette( $sql33);
+        $req44 = requette( $sql44);
+        $req55 = requette( $sql55);
         $ecoletab = resultotab($reqq, 'nom');
         $forms = resultotab($reqf, 'intitule');
         ?>
@@ -52,9 +52,9 @@
                 </div>
                 <form autocomplete="off" action="recherche.php" method="get">
                     <div class="autocomplete">
-                        <input id="ecole" type="search" placeholder="Rechercher une école" aria-label="Search"
-                               name="eq">
+                        <input id="ecole" type="search" placeholder="Rechercher une école" aria-label="Search" name="eq">
                     </div>
+                    <input type="text" name="page" value="1" class="display-none">
                     <input type="submit" value="Search">
                 </form>
                 <form class="form1" action="recherche.php" method="get">
@@ -93,8 +93,7 @@
                             <option value="<?= $ville['id'] ?>"><?= utf8_encode($ville['nom']) ?> </option>
                         <?php } ?>
                     </select><br><br><br>
-
-
+                    <input type="text" name="page" value="1" class="display-none">
                     <button class="button1" name="ecolerecherche">Lancer la recherche</button>
 
 
@@ -113,6 +112,7 @@
                         <input id="formation" type="search" placeholder="Rechercher une formation"
                                aria-label="Search" name="ef">
                     </div>
+                    <input type="text" name="page" value="1" class="display-none">
                     <input type="submit" value="Search">
                 </form>
                 <form class="form1" action="recherche.php" method="get">
@@ -151,6 +151,7 @@
                             <option value="<?= $ville['id'] ?>"><?= utf8_encode($ville['nom']) ?> </option>
                         <?php } ?>
                     </select><br><br><br>
+                    <input type="text" name="page" value="1" class="display-none">
                     <button class="button1" name="formationrecherche">Lancer la recherche</button>
 
                 </form>

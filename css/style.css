@@ -70,18 +70,20 @@
 
 .infos{
     position: absolute;
-    top: 40%;
-    width: 75%;left: 25%;
+    top: 40%;width: 75%;left: 25%;
     border-radius: 10px 10px 10px 10px;
 }
 .photo{
-    position: absolute;width: 25%;height: 25%;top: 10%;
-    left: 0%;min-width: 180px;
+    position: absolute;
+    width: 25%;height: 25%;top: 10%;left: 0%;
+    min-width: 180px;
     border-radius: 10px 10px 10px 10px;
 }
 .map{
-    position: absolute;width: 35%;height: 35%;top: 0%;
-    left: 30%;min-width: 430px;border: 2px mediumvioletred;
+    position: absolute;
+    width: 35%;height: 35%;top: 0%;left: 30%;
+    min-width: 430px;
+    border: 2px mediumvioletred;
     border-radius: 10px 10px 10px 10px;
 }
 .photo,.map{

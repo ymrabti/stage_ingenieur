@@ -2,14 +2,14 @@
 	<head>
 		<title>informations</title>
         <link rel="icon" href="images/1.png"  />
-		<link rel="stylesheet" type="text/css" href="http://openlayers.org/en/master/css/ol.css"/>
+		<link rel="stylesheet" type="text/css" href="https://openlayers.org/en/master/css/ol.css"/>
         <link rel="stylesheet" type="text/css" href="https://openlayers.org/en/v3.20.1/css/ol.css">
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
 		<script src="https://openlayers.org/en/v3.20.1/build/ol.js"></script>
 		<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script type="text/javascript" src="http://openlayers.org/en/master/build/ol.js"></script>
+        <script type="text/javascript" src="https://openlayers.org/en/master/build/ol.js"></script>
         <style>
             table {
                 font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -39,13 +39,12 @@
     <?php
 include "connexion.php";
 
-$link = mysqli_connect( $hote, $username, $password, $database );
 
 $id = $_GET['idd'];$source = $_GET['sr'];
 if ($source==1){
 	$sqll = "SELECT chemin,ecoles.nom as nomecole,ecoles.siteweb,types.nom as nomtype,villes.nom as vil,adresse,tel,fax,infos,lambda,phi FROM ecoles,types,villes,images WHERE ecoles.img = images.img_id and ville=villes.id and typeEtablissement=types.id and ecoles.id=$id";
 
-	$reqq = mysqli_query( $link, $sqll ) or die( mysqli_error( $link ) );
+	$reqq = requette($sqll);
 	$ecoles = mysqli_fetch_assoc( $reqq );
 	$site=$ecoles['siteweb'];$nom =$ecoles['nomecole'];$nomtype =$ecoles['nomtype'];$ville = $ecoles['vil'];
 	$chemin = $ecoles['chemin'];
@@ -58,15 +57,15 @@ if ($source==1){
 
 
 	$sql0 = "SELECT DISTINCT nom FROM dformecoless,dformations WHERE idforma=dformations.id and idecole1=$id";
-	$req = mysqli_query( $link, $sql0 ) or die( mysqli_error( $link ) );
+	$req = requette($sql0);
 
 
 	$sql2 = "SELECT DISTINCT nom FROM admecoles,admission WHERE idadmis=admission.id and idecole=$id";
-	$req2 = mysqli_query( $link, $sql2 ) or die( mysqli_error( $link ) );
+	$req2 = requette($sql2);
 
 
 	$sql3 = "SELECT DISTINCT id,intitule FROM formations WHERE ecoleoffert=$id";
-	$req3 = mysqli_query( $link, $sql3 ) or die( mysqli_error( $link ) );
+	$req3 = requette($sql3);
 
 
 	echo "
@@ -154,7 +153,7 @@ else
 {
 	$sqll = "SELECT lambda,phi,chemin,formations.*,admission.nom as nomadmission,dformations.nom as nomformation,ecoles.nom as nomecole,types.nom as nomtype,typesdiplomes.nom as diplome,villes.nom as city FROM images,formations,admission,dformations,ecoles,types,typesdiplomes,villes where formations.img=images.img_id and admisformation=admission.id and domaineformation=dformations.id and ecoleoffert=ecoles.id and typeformation=types.id and typediplome=typesdiplomes.id and ecoles.ville=villes.id and formations.id=$id";
 
-	$reqq = mysqli_query( $link, $sqll ) or die( mysqli_error( $link ) );
+	$reqq = requette($sqll);
 	$resultat = mysqli_fetch_assoc( $reqq );
 	$nom =$resultat['intitule'];$admis = $resultat['nomadmission'];$domaine =$resultat['nomformation'];$ecoffert = $resultat['nomecole'];
 	$nomtype =$resultat['nomtype'];$diplome = $resultat['diplome'];$ville = $resultat['city'];

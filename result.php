@@ -32,6 +32,7 @@
 </head>
 <body>
 <?php
+include 'connexion.php';
 $page = get_current_page();
 $limite = 5;
 function genere_sql($tab,$wtm,$champs)
@@ -51,13 +52,6 @@ function genere_sql($tab,$wtm,$champs)
         $i ++;
     }
     return $sqlr;
-}
-function requette($requtte)
-{
-    $password ='';$username = 'root';$database='lingenie_wp';$hote = 'localhost';
-    $link = mysqli_connect( $hote, $username, $password, $database );
-    $reqq = mysqli_query( $link, $requtte ) or die( mysqli_error( $link ) );
-    return $reqq;
 }
 function navigation_pages($currentpage,$totalpages){
     $range = 2;
@@ -159,9 +153,8 @@ if ( isset( $_POST["eq"] ) ) {
     $table_vide  = explode( " ", $word );
     $sqlr = genere_sql($table_vide,' id,infos,siteweb,nom,chemin FROM ecoles,images ','nom');
     $sqlr .=" and ecoles.img = images.img_id ";
+
     $values_and_attributues = $values_and_attributues_ecoles;
-    
-    
 }
 
 elseif ( isset($_POST["ecolerecherche"])  )  {
@@ -173,9 +166,7 @@ elseif ( isset($_POST["ecolerecherche"])  )  {
     $accessecole = $_POST['acces-ecole'] ;if ($accessecole!=1){$sqlr.=" AND idadmis=".$accessecole;}
     $domaineFormation = $_POST['domaineFormation'] ;if ($domaineFormation!=1){$sqlr.=" AND idforma=".$domaineFormation;}
 
-    $values_and_attributues= $values_and_attributues_ecoles; 
-    
-    
+    $values_and_attributues= $values_and_attributues_ecoles;
 }
 elseif (isset($_POST["ef"])   ) {
     $word = $_POST['ef'];

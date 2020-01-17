@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9d55d230-4d6f-4ff7-ba7b-26d7f7b1aa66" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infos.php" beforeDir="false" afterPath="$PROJECT_DIR$/infos.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lingenie_wp.sql" beforeDir="false" afterPath="$PROJECT_DIR$/lingenie_wp.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/recherche.php" beforeDir="false" afterPath="$PROJECT_DIR$/recherche.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result.php" beforeDir="false" afterPath="$PROJECT_DIR$/result.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/searchform.php" beforeDir="false" afterPath="$PROJECT_DIR$/searchform.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/test.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +82,7 @@
       <workItem from="1578403710299" duration="1258000" />
       <workItem from="1578925395556" duration="540000" />
       <workItem from="1578926478746" duration="12191000" />
-      <workItem from="1579102412282" duration="46439000" />
+      <workItem from="1579102412282" duration="49240000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1579226211953</created>
@@ -95,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579226211953</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="mon cemmit">
+      <created>1579262440541</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1579262440541</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,7 +106,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="mon cemmit" />
+    <option name="LAST_COMMIT_MESSAGE" value="mon cemmit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="112" y="2" key="#CLI_Interpreters" timestamp="1578404096177">
@@ -126,10 +130,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1579107136439" />
-    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1579226210603">
+    <state x="308" y="0" key="CommitChangelistDialog2" timestamp="1579262439670">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1579226210603" />
+    <state x="308" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1579262439670" />
     <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1578403977589">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

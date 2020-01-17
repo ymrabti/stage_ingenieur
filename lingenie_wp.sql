@@ -1,32 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.9.0.1
--- https://www.phpmyadmin.net/
---
--- Host: localhost
--- Generation Time: Oct 10, 2019 at 11:00 PM
--- Server version: 10.1.41-MariaDB
--- PHP Version: 7.1.32
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `lingenie_wp`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `admecoles`
---
 
 CREATE TABLE `admecoles` (
   `id` int(11) NOT NULL,
@@ -34,9 +5,6 @@ CREATE TABLE `admecoles` (
   `idadmis` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `admecoles`
---
 
 INSERT INTO `admecoles` (`id`, `idecole`, `idadmis`) VALUES
 (5002, 1076, 2),
@@ -512,6 +480,3 @@ ALTER TABLE `villes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

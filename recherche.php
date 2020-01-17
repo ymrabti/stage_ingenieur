@@ -54,23 +54,25 @@ function genere_sql($tab,$wtm,$champs)
     return $sqlr;
 }
 function navigation_pages($currentpage,$totalpages){
-    $range = 2;
-    echo " <a id='page1' class='button1' href='{$_SERVER['PHP_SELF']}?page=1'><<</a> ";
+    $range = 2;$link = $_SERVER['REQUEST_URI'];
+    $links  = explode( "&page=".$currentpage, $link );
+    $link = $links[0].$links[1];
+    echo " <a id='page1' class='button1' href='$link&page=1'><<</a> ";
     $prevpage = $currentpage - 1;
-    echo " <a id='avant' class='button1' href='{$_SERVER['PHP_SELF']}?page=$prevpage'><</a> ";
+    echo " <a id='avant' class='button1' href='$link&page=$prevpage'><</a> ";
 
     for ($x = ($currentpage - $range); $x < (($currentpage + $range) + 1); $x++) {
         if (($x > 0) && ($x <= $totalpages)) {
             if ($x == $currentpage) {
-                echo "<div class='button1'> [<b>$x</b>]</div> ";
+                echo "<div id='actual' class='button1'> [<b>$x</b>]</div> ";
             } else {
-                echo " <a class='button1' href='{$_SERVER['PHP_SELF']}?page=$x'>$x</a> ";
+                echo " <a class='button1' href='$link&page=$x'>$x</a> ";
             }
         }
     }
     $nextpage = $currentpage + 1;
-    echo " <a id='apres' class='button1' href='{$_SERVER['PHP_SELF']}?page=$nextpage'>></a> ";
-    echo " <a id='fin' class='button1' href='{$_SERVER['PHP_SELF']}?page=$totalpages'>>></a> ";
+    echo " <a id='apres' class='button1' href='$link&page=$nextpage'>></a> ";
+    echo " <a id='fin' class='button1' href='$link&page=$totalpages'>>></a> ";
 
     if ($currentpage == 1) {
         echo "
@@ -84,6 +86,12 @@ function navigation_pages($currentpage,$totalpages){
             <script>
                 document.getElementById('apres').style.visibility ='hidden';
                 document.getElementById('fin').style.visibility ='hidden';
+            </script>";
+    }
+    if ($totalpages == 1) {
+        echo "
+            <script>
+                document.getElementById('actual').style.visibility ='hidden';
             </script>";
     }
 
@@ -121,7 +129,7 @@ function contenue($nombreDePages,$query1,$tab,$values_and_attributues)
     else
     {
         list($val1,$val2,$val3,$val4,$val5,$att1,$att2,$att3,$att4,$source) = $values_and_attributues;
-        echo "<form action=\"infos.php\">
+        echo "<form action='infos.php' method='post'>
                     <table id='informations_generales'>
                         <th >$att1</th>
                         <th >$att2</th>
@@ -162,7 +170,6 @@ if ( isset( $_GET["eq"] ) ) {
 
     $values_and_attributues = $values_and_attributues_ecoles;
 }
-
 elseif ( isset($_GET["ecolerecherche"])  )  {
     $sqlr = "SELECT distinct SQL_CALC_FOUND_ROWS idecole as id ,infos, siteweb,nom,chemin FROM ecoles,admecoles,dformecoless,diplomationecoles,images where ecoles.img = images.img_id and ecoles.id = idecole AND ecoles.id = idecole1 AND ecoles.id = ecole";
 
@@ -207,6 +214,7 @@ FROM ecoles,admecoles,dformecoless,diplomationecoles, images where ecoles.img = 
     $values_and_attributues = $values_and_attributues_ecoles;
 
 }
+
 $nombreDePages = nombre_de_pages_($limite,$sqlr);
 if ($page < 1) {
     $page = 1;
